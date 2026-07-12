@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── 全域 Reset ── */
+:root {
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans TC', 'PingFang TC', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 防止 iOS bounce 效果讓背景露底 */
+  overscroll-behavior: none;
+  /* 隱藏預設捲軸 (Firefox) */
+  scrollbar-width: none;
+}
+
+/* 隱藏預設捲軸 (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── App 殼 ── */
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100dvh; /* dynamic viewport height，支援手機動態導航列 */
+}
+
+/* ── 手機視窗容器（統一 max-width，左右各 16px） ── */
+.app-container {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  position: relative;
+  overflow-x: hidden;
+  padding-top: max(env(safe-area-inset-top, 44px), 24px);
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: max(24px, var(--safe-bottom));
+}
+
+/* ── 全域背景：Background.png 覆蓋整個畫面 ── */
+.screen-bg {
+  background-image: url('/src/assets/backgrounds/Background.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ── Safe area 頂部留白 ── */
+.safe-top {
+  padding-top: max(env(safe-area-inset-top, 44px), 24px);
+}
+
+/* ── 共用動畫 ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+.fade-in-up-delay-1 { animation-delay: 0.08s; }
+.fade-in-up-delay-2 { animation-delay: 0.16s; }
+.fade-in-up-delay-3 { animation-delay: 0.24s; }
+.fade-in-up-delay-4 { animation-delay: 0.32s; }
+.fade-in-up-delay-5 { animation-delay: 0.40s; }
