@@ -166,7 +166,7 @@ export default function AnalyticsScreen() {
         justifyContent: 'center',
       }}
     >
-      <div className="app-container" style={{ padding: '32px 16px 24px' }}>
+      <div className="app-container" style={{ padding: '32px 20px 24px' }}>
         {/* ═══════ 1) 頁首 ═══════ */}
         <h1
           style={{

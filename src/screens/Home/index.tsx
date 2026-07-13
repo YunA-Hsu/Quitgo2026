@@ -149,7 +149,7 @@ const cardStyle: React.CSSProperties = {
   backgroundColor: base.card,
   borderRadius: radius.lg,
   boxShadow: shadow.card,
-  padding: '16px',
+  padding: '20px',
   width: '100%',
 }
 

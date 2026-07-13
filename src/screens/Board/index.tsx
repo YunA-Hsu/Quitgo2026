@@ -280,7 +280,7 @@ export default function BoardScreen() {
         </div>
       </div>
 
-      <div className="app-container" style={{ position: 'relative', flex: 1, padding: '24px 16px' }}>
+      <div className="app-container" style={{ position: 'relative', flex: 1, padding: '24px 20px' }}>
         
         <div ref={containerRef} style={{ 
           display: 'flex', flexDirection: 'column', gap: '48px', position: 'relative', zIndex: 1, paddingTop: '24px'
