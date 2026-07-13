@@ -1,4 +1,4 @@
-import React from 'react'
+// MoodBall component
 import { mood } from '../styles/tokens'
 import type { MoodKey } from '../styles/tokens'
 

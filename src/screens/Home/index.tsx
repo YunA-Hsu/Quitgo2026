@@ -141,7 +141,6 @@ function CoinIllustration() {
 }
 
 // ── 共用按鈕樣式 ──────────────────────────────────────────────
-const UNIFIED_BTN_WIDTH = '200px'
 const UNIFIED_BTN_HEIGHT = '44px'
 const UNIFIED_BTN_RADIUS = radius.lg
 
@@ -160,7 +159,7 @@ export default function HomeScreen() {
   const c = copy.home
 
   // State for greeting text and button
-  const [promptText, setPromptText] = useState(c.todayPrompt)
+  const [promptText, setPromptText] = useState<string>(c.todayPrompt)
   const [canRecord, setCanRecord] = useState(true)
   
   // Track selected date for Energy Jar & Mood Tally

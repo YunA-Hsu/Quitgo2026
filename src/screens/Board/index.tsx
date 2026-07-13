@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import BottomNav from '../../components/BottomNav';
 import { base, font, radius, shadow, rarity, mood, game } from '../../styles/tokens';
 import { MOCK_BOARD_DECK, BoardCard } from '../../fixtures/boardDeck';
@@ -157,10 +157,9 @@ export default function BoardScreen() {
         const x = el.offsetLeft + el.offsetWidth / 2;
         const y = el.offsetTop + el.offsetHeight / 2;
 
-        if (lastPoint) {
-          const [lx, ly] = lastPoint;
-          const dy = (y - ly) / 2;
-          path += ` C ${lx} ${ly + dy}, ${x} ${y - dy}, ${x} ${y}`;
+        if (hasLast) {
+          const dy = (y - lastY) / 2;
+          path += ` C ${lastX} ${lastY + dy}, ${x} ${y - dy}, ${x} ${y}`;
         } else {
           path += `M ${x} ${y}`;
         }

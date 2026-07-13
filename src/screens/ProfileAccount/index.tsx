@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { base, font, radius, shadow } from '../../styles/tokens';
 import { MOCK_ACCOUNT_INFO } from '../../fixtures/profile';

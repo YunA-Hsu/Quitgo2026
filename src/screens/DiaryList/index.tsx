@@ -1,6 +1,6 @@
 import { useState, useMemo, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { base, mood, moodLabels, font, shadow, radius } from '../../styles/tokens'
+import { base, font, shadow, radius } from '../../styles/tokens'
 import { copy } from '../../copy/zh-TW'
 import BottomNav from '../../components/BottomNav'
 import MoodBall from '../../components/MoodBall'
@@ -34,16 +34,6 @@ const MOCK_ENTRIES: DiaryEntry[] = [
   { id: '13', date: '2026-07-12', time: '20:12', mood: 'calm', preview: '回家後放空一下，聽音樂心情好多了' },
 ]
 
-// ── 心情表情圖示 ──────────────────────────────────────────────
-const moodEmojis: Record<MoodKey, string> = {
-  happy: '😊',
-  calm: '😌',
-  ordinary: '😐',
-  achievement: '😄',
-  depressed: '😢',
-  hurt: '😞',
-  angry: '😤',
-}
 
 // ── Helper ────────────────────────────────────────────────────
 function getDaysInMonth(year: number, month: number) {
@@ -90,7 +80,6 @@ export default function DiaryListScreen() {
 
   // 星期幾名稱
   const weekDayOfSelected = new Date(viewYear, viewMonth, selectedDay).getDay()
-  const isToday = viewYear === today.getFullYear() && viewMonth === today.getMonth() && selectedDay === today.getDate()
 
   // 月份切換
   function goMonth(delta: number) {

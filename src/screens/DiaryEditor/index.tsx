@@ -5,17 +5,6 @@ import { copy } from '../../copy/zh-TW'
 import type { MoodKey } from '../../styles/tokens'
 import MoodBall from '../../components/MoodBall'
 
-// ── 心情表情圖示 ──────────────────────────────────────────────
-const moodEmojis: Record<MoodKey, string> = {
-  happy: '😊',
-  calm: '😌',
-  ordinary: '😐',
-  achievement: '😄',
-  depressed: '😢',
-  hurt: '😞',
-  angry: '😤',
-}
-
 const MOOD_KEYS: MoodKey[] = ['happy', 'calm', 'ordinary', 'achievement', 'depressed', 'hurt', 'angry']
 
 // ── 預設標籤 ──────────────────────────────────────────────────

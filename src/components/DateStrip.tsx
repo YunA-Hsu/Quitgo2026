@@ -239,8 +239,8 @@ export default function DateStrip({ moodData, onDateClick }: DateStripProps) {
 
               // 樣式規則計算
               let circleBg = 'transparent'
-              let textColor = base.textSecondary
-              let fontWt = font.weight.regular
+              let textColor: string = base.textSecondary
+              let fontWt: number = font.weight.regular
               let borderStyle = 'none'
 
               if (recorded) {
