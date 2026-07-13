@@ -41,7 +41,7 @@ body {
   min-height: 100dvh; /* dynamic viewport height，支援手機動態導航列 */
 }
 
-/* ── 手機視窗容器（統一 max-width，左右各 20px） ── */
+/* ── 手機視窗容器（統一 max-width，左右各 24px） ── */
 .app-container {
   width: 100%;
   max-width: 430px;
@@ -50,8 +50,8 @@ body {
   position: relative;
   overflow-x: hidden;
   padding-top: max(env(safe-area-inset-top, 44px), 24px);
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
   padding-bottom: max(24px, var(--safe-bottom));
 }
 

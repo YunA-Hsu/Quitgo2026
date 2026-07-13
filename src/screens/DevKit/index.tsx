@@ -11,7 +11,7 @@ export default function DevKitScreen() {
   const mockMoodData = getMockMoodData()
 
   return (
-    <div className="app-container screen-bg" style={{ minHeight: '100dvh', padding: '24px 20px' }}>
+    <div className="app-container screen-bg" style={{ minHeight: '100dvh', padding: '24px 24px' }}>
       <h1 style={{ color: base.textPrimary, fontFamily: font.family, marginBottom: '24px' }}>Dev Kit</h1>
       
       <section style={{ marginBottom: '32px' }}>

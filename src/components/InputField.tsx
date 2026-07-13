@@ -23,9 +23,9 @@ export default function InputField({
         gap: '10px',
         backgroundColor: base.card,
         border: `1.5px solid ${base.border}`,
-        borderRadius: '12px',
+        borderRadius: '8px',
         padding: '0 14px',
-        height: '52px',
+        height: '44px',
         width: '100%',
       }}
     >

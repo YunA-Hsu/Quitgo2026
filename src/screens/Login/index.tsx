@@ -12,8 +12,9 @@ import emailIcon from '../../assets/icons/email.png'
 import padlockIcon from '../../assets/icons/padlock.png'
 import visibleIcon from '../../assets/icons/visible.png'
 import eyebrowIcon from '../../assets/icons/eyebrow.png'
-import lineLoginImg from '../../assets/icons/Line login.png'
-import googleLoginImg from '../../assets/icons/Google Login.png'
+import appleLoginImg from '../../assets/icons/Continue with Apple.png'
+import googleLoginImg from '../../assets/icons/Continue with Google.png'
+import lineLoginImg from '../../assets/icons/Continue with Line.png'
 
 
 // ─────────────────────────────────────────────────────────────
@@ -31,6 +32,20 @@ export default function LoginScreen() {
     e.preventDefault()
     // V1：直接導向首頁（後端串接後替換）
     navigate('/home')
+  }
+
+  // 共用社交按鈕樣式
+  const socialBtnStyle: React.CSSProperties = {
+    background: 'none',
+    border: 'none',
+    padding: 0,
+    cursor: 'pointer',
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    transition: 'opacity 0.15s ease, transform 0.1s ease',
   }
 
   return (
@@ -110,59 +125,51 @@ export default function LoginScreen() {
           {c.slogan}
         </p>
 
-        {/* ── 第三方登入按鈕 ── */}
+        {/* ── 第三方登入按鈕（Apple / Google / LINE） ── */}
         <div
           className="fade-in-up fade-in-up-delay-2"
-          style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '20px' }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' }}
         >
-          {/* LINE 官方按鈕圖 */}
+          {/* Apple 登入 */}
           <button
             type="button"
-            id="btn-line-login"
-            aria-label={c.lineLogin}
-            style={{
-              background: 'none',
-              border: 'none',
-              padding: 0,
-              cursor: 'pointer',
-              width: '100%',
-              minHeight: '44px',
-              display: 'flex',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              transition: 'opacity 0.15s ease, transform 0.1s ease',
-            }}
+            id="btn-apple-login"
+            aria-label="透過 Apple 繼續"
+            style={socialBtnStyle}
             onTouchStart={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(0.98)' }}
             onTouchEnd={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)' }}
             onMouseDown={e => { (e.currentTarget as HTMLElement).style.opacity = '0.85' }}
             onMouseUp={e => { (e.currentTarget as HTMLElement).style.opacity = '1' }}
           >
-            <img src={lineLoginImg} alt={c.lineLogin} style={{ width: '100%', height: 'auto', display: 'block' }} />
+            <img src={appleLoginImg} alt="透過 Apple 繼續" style={{ display: 'block' }} />
           </button>
 
-          {/* Google 官方按鈕圖 */}
+          {/* Google 登入 */}
           <button
             type="button"
             id="btn-google-login"
             aria-label={c.googleLogin}
-            style={{
-              background: 'none',
-              border: 'none',
-              padding: 0,
-              cursor: 'pointer',
-              width: '100%',
-              minHeight: '44px',
-              display: 'flex',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              transition: 'opacity 0.15s ease, transform 0.1s ease',
-            }}
+            style={socialBtnStyle}
             onTouchStart={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(0.98)' }}
             onTouchEnd={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)' }}
             onMouseDown={e => { (e.currentTarget as HTMLElement).style.opacity = '0.85' }}
             onMouseUp={e => { (e.currentTarget as HTMLElement).style.opacity = '1' }}
           >
-            <img src={googleLoginImg} alt={c.googleLogin} style={{ width: '100%', height: 'auto', display: 'block' }} />
+            <img src={googleLoginImg} alt={c.googleLogin} style={{ display: 'block' }} />
+          </button>
+
+          {/* LINE 登入 */}
+          <button
+            type="button"
+            id="btn-line-login"
+            aria-label={c.lineLogin}
+            style={socialBtnStyle}
+            onTouchStart={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(0.98)' }}
+            onTouchEnd={e => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)' }}
+            onMouseDown={e => { (e.currentTarget as HTMLElement).style.opacity = '0.85' }}
+            onMouseUp={e => { (e.currentTarget as HTMLElement).style.opacity = '1' }}
+          >
+            <img src={lineLoginImg} alt={c.lineLogin} style={{ display: 'block' }} />
           </button>
         </div>
 
@@ -174,6 +181,9 @@ export default function LoginScreen() {
             alignItems: 'center',
             gap: '10px',
             marginBottom: '20px',
+            maxWidth: '224px',
+            alignSelf: 'center',
+            width: '100%',
           }}
         >
           <div style={{ flex: 1, height: '1px', backgroundColor: base.border }} />
@@ -194,7 +204,7 @@ export default function LoginScreen() {
         <form
           className="fade-in-up fade-in-up-delay-3"
           onSubmit={handleEmailLogin}
-          style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '224px', width: '100%', alignSelf: 'center' }}
         >
           <InputField
             id="input-email"
@@ -244,18 +254,18 @@ export default function LoginScreen() {
             </button>
           </div>
 
-          {/* 登入按鈕 */}
+          {/* 登入按鈕 — 高度與社交按鈕視覺對齊 */}
           <button
             type="submit"
             id="btn-email-login"
             style={{
               width: '100%',
-              height: '52px',
-              borderRadius: '12px',
+              height: '44px',
+              borderRadius: '8px',
               border: 'none',
               backgroundColor: base.brandSprout,
               color: '#FFFFFF',
-              fontSize: '16px',
+              fontSize: '15px',
               fontWeight: 600,
               fontFamily: "'Noto Sans TC', 'PingFang TC', sans-serif",
               cursor: 'pointer',
